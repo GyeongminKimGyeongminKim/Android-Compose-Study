@@ -1,4 +1,4 @@
-package com.example.themingcodelab
+package com.example.reply
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
