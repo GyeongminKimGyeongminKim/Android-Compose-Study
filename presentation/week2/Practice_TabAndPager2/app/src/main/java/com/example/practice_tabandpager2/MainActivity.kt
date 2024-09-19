@@ -13,6 +13,7 @@ import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.PagerState
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.ScrollableTabRow
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Tab
 import androidx.compose.material3.TabRow
@@ -30,7 +31,7 @@ import com.example.practice_tabandpager2.ui.theme.Practice_TabAndPager2Theme
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
-val pages = listOf("페이지1", "페이지2", "페이지3")
+val pages = listOf("페이지1", "페이지2", "페이지3", "페이지4", "페이지5", "페이지6")
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,7 +51,6 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun MainScreen() {
     val pagerState = rememberPagerState(
@@ -67,10 +67,10 @@ fun MainScreen() {
     }
 }
 
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun TabLayout(pagerState: PagerState, coroutineScope: CoroutineScope) {
-    TabRow(
+    ScrollableTabRow(
+        edgePadding = 0.dp,
         selectedTabIndex = pagerState.currentPage,
         indicator = { tabPositions ->
             TabRowDefaults.Indicator(
@@ -93,7 +93,6 @@ fun TabLayout(pagerState: PagerState, coroutineScope: CoroutineScope) {
     }
 }
 
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun PagerContent(pagerState: PagerState) {
     HorizontalPager(
